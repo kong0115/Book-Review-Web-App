@@ -1,0 +1,53 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+Book Review - Sign Up
+{% endblock %}
+
+{% block body %}
+<h3>Sign up now to use the book review website today!</h3>
+<div class="mt-4 py-3 card h-100 border-primary justify-content-center">
+
+  <!-- A form to get the user information that is required to sign up for the web application -->
+  <form action="{{url_for('signup_authenticate')}}",  method="post">
+
+    <!-- Display signup message (error message) if there is any -->
+    <p>{{signup_message}}</p>
+
+    <!-- username field -->
+    <div class="mt-2 px-4 form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" placeholder="Enter Username">
+    </div>
+
+    <!-- full name field -->
+    <div class="px-4 form-group">
+      <label for="fullname">Full name</label>
+      <input type="text" class="form-control" name="fullname" placeholder="Enter Full name">
+    </div>
+
+    <!-- email field -->
+    <div class="px-4 form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" name="email" placeholder="Enter Email address">
+    </div>
+
+    <!-- Password field -->
+    <div class="px-4 form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" placeholder="Enter Password">
+    </div>
+
+    <!-- button to submit the sign up form -->
+    <div class="my-4 px-4 col">
+      <button class="btn btn-primary btn-block">Sign up</button>
+    </div>
+  </form>
+</div>
+
+<!-- link to the login page -->
+<div class="col align-self-center" style="text-align: center">
+  <a href="{{url_for('login')}}">Already have an account? Log in </a>
+</div>
+
+{% endblock %}

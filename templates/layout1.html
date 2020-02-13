@@ -1,0 +1,24 @@
+<!-- template used for login, signup, and error page -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <!-- my css file -->
+  <link rel="stylesheet" href="/static/styles.css">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/2ad09a2685.js" crossorigin="anonymous"></script>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container h-100">
+    <div class="row align-items-center h-100">
+      <div class="col-5 mx-auto">
+        {% block body %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

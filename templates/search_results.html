@@ -1,0 +1,32 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+Book Review - Search results
+{% endblock %}
+
+{% block body %}
+<!-- display a list of books found in the database -->
+<div class="list-group">
+  {% for book in books %}
+
+  <!-- link to the book page that shows the book details and reviews -->
+  <a href="{{url_for('book', isbn=book.isbn)}}" class="list-group-item list-group-item-action">
+
+    <!-- display book title and publication year on the first line -->
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{book.title}}</h5>
+      <small>Publised in {{book.year}}</small>
+    </div>
+
+    <!-- display author and isbn on the second line -->
+    <div class="d-flex w-100 justify-content-between">
+      <h6 class="mb-1">Author: {{book.author}}</h6>
+      <small>ISBN: {{book.isbn}}</small>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+
+<!-- Display search message (number of books found or error message if nothing match) -->
+<p>{{search_message}}</p>
+{% endblock %}

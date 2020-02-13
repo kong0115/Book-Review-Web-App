@@ -1,0 +1,60 @@
+<!-- template used for home, search results, and book page -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <!-- my css file -->
+  <link rel="stylesheet" href="/static/styles.css">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/2ad09a2685.js" crossorigin="anonymous"></script>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- navigation bar on the top -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+
+    <!-- brand name -->
+    <a class="navbar-brand" href="{{url_for('index')}}">Book Review</a>
+
+    <!-- navigation bar toggler -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- navigation bar collapse contents -->
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+      <!-- search tool -->
+      <form class="form-inline mr-auto my-2 my-lg-0" action="{{url_for('index')}}" method="POST">
+        <input class="form-control mr-sm-2" type="search" placeholder="Title/Author/ISBN" name="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+      <!-- dropdown -->
+      <ul class="navbar-nav mt-2 mt-lg-0">
+        <li class="nav-item dropdown">
+
+          <!-- display username -->
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{username}}
+          </a>
+
+          <!-- link to log out -->
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{url_for('logout')}}">Log out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  {% block body %}
+  {% endblock %}
+</body>
+</html>
