@@ -50,7 +50,7 @@ Book Review - {{book.title}}
               <script>
                 var ratings_list = document.getElementsByName("ratings");
                 for(var i = 0; i < ratings_list.length; i++){
-                  for(var j = 1; j <= 5; j++){
+                  for(var j = 5; j <= 9; j++){
                     if(ratings_list[i].childNodes[j].id <= ratings_list[i].getAttribute('data-value')){
                       ratings_list[i].childNodes[j].style.color="orange";
                     }
