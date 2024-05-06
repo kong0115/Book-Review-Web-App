@@ -1,5 +1,5 @@
 Flask
-werkzeug==2.2.3
+werkzeug==3.0.3
 Flask-Session
 psycopg2-binary
 SQLAlchemy
